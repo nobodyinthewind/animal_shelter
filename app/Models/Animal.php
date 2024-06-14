@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -8,10 +10,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * @method static select()
+ * @method static where(string $string, string $string1)
+ */
 class Animal extends Model
 {
-    use HasUlids;
     use HasFactory;
+    use HasUlids;
 
     protected $fillable = [
         'name',
@@ -22,7 +28,7 @@ class Animal extends Model
         'colour',
         'markings',
         'note',
-        'shortdescription',
+        'short_description',
         'weight',
         'pic2',
         'pic3',
@@ -31,33 +37,33 @@ class Animal extends Model
         'fleaed',
         'incoming',
         'microchip',
-        'kennelcough',
-        'spayedneutered',
+        'kennel_cough',
+        'spayed_neutered',
         'location',
-        'locateddate',
+        'located_date',
         'status',
-        'trainingdecdue',
-        'firstjab',
-        'spaydecdue',
-        'secondjab',
-        'medicalnote',
-        'trainingdecreturned',
-        'spaydecreturned',
-        'boosterdue',
-        'stichesout',
-        'statuschange',
+        'training_dec_due',
+        'first_jab',
+        'spay_dec_due',
+        'second_jab',
+        'medical_note',
+        'training_dec_returned',
+        'spay_dec_returned',
+        'booster_due',
+        'stitches_out',
+        'status_change',
         'dow',
         'dom',
         'update_chip',
-        'assesmentnote',
-        'othernote',
+        'assessment_note',
+        'other_note',
         'adopt_app',
         'dom_update',
         'type',
         'l_modified',
         'r_homing',
         'locked',
-        'lockedtime',
+        'locked_time',
         'adopt_wording',
         'available_date',
         'updated_date',
@@ -78,33 +84,41 @@ class Animal extends Model
         'wormed',
         'fleaed',
         'incoming',
-        'kennelcough',
-        'spayedneutered',
-        'locateddate',
-        'trainingdecdue',
-        'firstjab',
-        'spaydecdue',
-        'secondjab',
-        'trainingdecreturned',
-        'spaydecreturned',
-        'boosterdue',
-        'stichesout',
-        'statuschange',
+        'kennel_cough',
+        'spayed_neutered',
+        'located_date',
+        'training_dec_due',
+        'first_jab',
+        'spay_dec_due',
+        'second_jab',
+        'training_dec_returned',
+        'spay_dec_returned',
+        'booster_due',
+        'stitches_out',
+        'status_change',
         'dom_update',
         'l_modified',
-        'lockedtime',
+        'locked_time',
         'available_date',
         'updated_date',
         'dom_date',
     ];
 
-    public function user()
+    protected function casts(): array
     {
-        return $this->belongsTo(User::class);
+        return [
+            'locked_time' => 'datetime',
+            'password' => 'hashed',
+        ];
     }
 
-    public function adopter()
+    public function location(): BelongsTo
     {
-        return $this->belongsTo(Adopter::class);
+        return $this->belongsTo(User::class, 'located_at');
+    }
+
+    public function applications(): HasMany
+    {
+        return $this->hasMany(Application::class, 'animal_id');
     }
 }

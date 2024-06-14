@@ -17,7 +17,7 @@
         </svg>
         <div class="text-base leading-7">
           <h3 class="font-semibold text-white">Our Mission</h3>
-          <p class="mt-2 text-gray-300">CMany Tears Animal Rescue was set up as a Not For Profit Company. The objectives of this Association are: to take in and re-home unwanted dogs; to provide a special living environment; to help them adapt and find permanent homes of their own.</p>
+          <p class="mt-2 text-gray-300">Animal Shelter was set up as a Not For Profit Company. The objectives of this Association are: <br>to take in and re-home unwanted dogs;<br> to provide a special living environment;<br> to help them adapt and find permanent homes of their own.<br>&nbsp;</p>
         </div>
       </div>
       <div class="flex gap-x-4 p-6 rounded-xl ring-1 ring-inset bg-white/5 ring-white/10">
@@ -26,7 +26,7 @@
         </svg>
         <div class="text-base leading-7">
           <h3 class="font-semibold text-white">Our Promise</h3>
-          <p class="mt-2 text-gray-300">All our dogs are spayed/neutered, micro chipped, inoculated and wormed but in addition to this we get many dogs in need of specialist veterinary care. Some of the most frequent problems we encounter are dogs who arrive here with eye and heart problems, along with those with liver shunts and joint problems. Any treatment is required is financed by donations to the rescue which enable us to ensure each dog receives the specialist care it needs.</p>
+          <p class="mt-2 text-gray-300">All our dogs are spayed/neutered, micro chipped, inoculated and wormed but in addition to this we get many dogs in need of specialist veterinary care. Some of the most frequent problems we encounter are dogs who arrive here with eye and heart problems, along with those with liver shunts and joint problems.</p>
         </div>
       </div>
       <div class="flex gap-x-4 p-6 rounded-xl ring-1 ring-inset bg-white/5 ring-white/10">
@@ -36,7 +36,7 @@
         </svg>
         <div class="text-base leading-7">
           <h3 class="font-semibold text-white">Our Vision</h3>
-          <p class="mt-2 text-gray-300">All potential adopters are interviewed and homes vetted and we do our utmost best to find the right home for each dog. The rescue has grown considerably since it first opened and now homes in excess of 3,000 dogs a year. We hope to keep exceeding this and grow year on year.</p>
+          <p class="mt-2 text-gray-300">All potential adopters are interviewed and homes vetted and we do our utmost best to find the right home for each dog. The rescue has grown considerably since it first opened and now homes in excess of 3,000 dogs a year. We hope to keep exceeding this and grow year on year.<br>&nbsp;</p>
         </div>
       </div>
     </div>

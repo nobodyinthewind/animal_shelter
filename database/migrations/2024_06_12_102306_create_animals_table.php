@@ -10,76 +10,77 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('animals', function (Blueprint $table) {
-            $table->char('ulid', 26, []);
+        Schema::create('animals', static function (Blueprint $table) {
+            $table->ulid('id');
             $table->string('name', 255, []);
-            $table->string('sex', 255, []);
+            $table->enum('sex', ['male', 'female']);
+            $table->enum('type', ['cat', 'dog', 'other']);
             $table->string('breed', 255, []);
-            $table->string('age', 255, []);
-            $table->date('dob', []);
             $table->string('colour', 255, []);
-            $table->string('markings', 255, []);
-            $table->text('note', []);
-            $table->text('shortdescription', []);
-            $table->integer('weight', [])->autoIncrement();
-            $table->string('pic2', 255, []);
-            $table->string('pic3', 255, []);
-            $table->string('pic4', 255, []);
-            $table->date('wormed', []);
-            $table->date('fleaed', []);
-            $table->date('incoming', []);
-            $table->string('microchip', 255, []);
-            $table->date('kennelcough', []);
-            $table->date('spayedneutered', []);
-            $table->integer('location', [])->autoIncrement();
-            $table->date('locateddate', []);
-            $table->string('status', 255, []);
-            $table->date('trainingdecdue', []);
-            $table->date('firstjab', []);
-            $table->date('spaydecdue', []);
-            $table->date('secondjab', []);
-            $table->text('medicalnote', []);
-            $table->date('trainingdecreturned', []);
-            $table->date('spaydecreturned', []);
-            $table->date('boosterdue', []);
-            $table->date('stichesout', []);
-            $table->dateTime('statuschange', []);
-            $table->integer('dow', [])->autoIncrement();
-            $table->integer('dom', [])->autoIncrement();
-            $table->integer('update_chip', [])->autoIncrement();
-            $table->text('assesmentnote', []);
-            $table->text('othernote', []);
-            $table->string('adopt_app', 255, []);
-            $table->dateTime('dom_update', []);
-            $table->integer('type', [])->autoIncrement();
+            $table->string('markings', 255, [])->nullable();
+            $table->text('short_description', []);
+            $table->float('weight', [])->nullable();
+            $table->float('age_no', [])->nullable();
+            $table->string('age', [])->nullable();
+            $table->string('pic2', 255, [])->nullable();
+            $table->string('pic3', 255, [])->nullable();
+            $table->string('pic4', 255, [])->nullable();
+            $table->date('dob', [])->nullable();
+            $table->enum('status', ['available', 'adopted', 'reserved', 'special-homes']);
+            $table->date('status_change', [])->nullable();
+            $table->date('wormed', [])->nullable();
+            $table->date('fleaed', [])->nullable();
+            $table->date('incoming', [])->nullable();
+            $table->date('kennel_cough', [])->nullable();
+            $table->date('spayed_neutered', [])->nullable();
+            $table->date('spay_dec_due', [])->nullable();
+            $table->date('spay_dec_returned', [])->nullable();
+            $table->string('microchip', 255, [])->nullable();
+
+            $table->date('located_date', []);
+            $table->date('training_dec_due', [])->nullable();
+            $table->date('first_jab', [])->nullable();
+            $table->date('second_jab', [])->nullable();
+            $table->text('medical_note', [])->nullable();
+            $table->text('note', [])->nullable();
+            $table->text('other_note', [])->nullable();
+            $table->text('vetter_note', [])->nullable();
+            $table->text('assessment_note', [])->nullable();
+            $table->dateTime('assessment_date', [])->nullable();
+            $table->text('adopt_wording', [])->nullable();
+            $table->date('training_dec_returned', [])->nullable();
+            $table->date('booster_due', [])->nullable();
+            $table->date('stitches_out', [])->nullable();
+            $table->boolean('dow', [])->nullable();
+            $table->boolean('dom', [])->nullable();
+            $table->boolean('update_chip', [])->nullable();
+            $table->string('adopt_app', 255, [])->nullable();
+            $table->dateTime('dom_update', [])->nullable();
+
             $table->timestamp('l_modified', []);
             $table->string('r_homing', 255, []);
-            $table->string('locked', 255, []);
-            $table->dateTime('lockedtime', []);
-            $table->text('adopt_wording', []);
-            $table->date('available_date', []);
-            $table->date('updated_date', []);
-            $table->date('dom_date', []);
-            $table->integer('baby', [])->autoIncrement();
-            $table->integer('ex_breeding', [])->autoIncrement();
-            $table->integer('only_animal', [])->autoIncrement();
-            $table->integer('not_mtar', [])->autoIncrement();
-            $table->float('age_no', []);
-            $table->dateTime('assessment_date', []);
-            $table->text('vetter_note', []);
-            $table
-                ->bigInteger('user_id', [])
-                ->unsigned()
-                ->index();
-            $table->timestamp('created_at', [])->nullable();
-            $table->timestamp('updated_at', [])->nullable();
+            $table->string('locked', 255, [])->nullable();
+            $table->dateTime('locked_time', [])->nullable();
 
-            $table
-                ->foreign('user_id')
+            $table->date('available_date', [])->nullable();
+            $table->date('updated_date', [])->nullable();
+            $table->date('dom_date', [])->nullable();
+            $table->boolean('baby', [])->nullable();
+            $table->boolean('ex_breeding', [])->nullable();
+            $table->boolean('only_animal', [])->nullable();
+            $table->boolean('from_outside', [])->nullable();
+
+            $table->string('located_at');
+            $table->foreign('located_at')
                 ->references('id')
-                ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->on('users');
+
+//            $table->foreignId('user_id')
+//                ->constrained()
+//                ->onUpdate('cascade')
+//                ->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 

@@ -20,7 +20,7 @@ new class () extends Component {
   public function animals()
   {
     return Animal::select()
-      ->where('status', 'reserved')
+      ->where('status', 'special-homes')
       ->limit($this->limit)
       ->offset($this->offset)
       ->get();
@@ -28,6 +28,9 @@ new class () extends Component {
 
   public function loadMore(): int
   {
+    if($this->count < 3) {
+        return 0;
+    }
     return $this->offset < $this->count - 3 ?
       $this->offset += 3 :
       $this->offset = $this->limit;
@@ -48,24 +51,32 @@ new class () extends Component {
   </div>
   <div class="flex justify-between mx-20 max-w-5xl">
     @if($this->offset)
-    <button wire:click.prevent="loadLess" type="submit"
+      <button wire:click.prevent="loadLess" type="submit"
       class="inline-flex absolute left-0 items-center px-4 py-2 mx-4 text-xs font-medium text-indigo-700 bg-indigo-50 rounded-md ring-1 ring-inset ring-indigo-700/10">
-      <span aria-hidden="true">&larr;</span>
-    </button>
-  @endif
+        <span aria-hidden="true">&larr;</span>
+      </button>
+     @endif
+    @if($this->count > 3)
     <button wire:click.prevent="loadMore" type="submit"
       class="inline-flex absolute right-0 items-center px-4 py-2 mx-4 text-xs font-medium text-indigo-700 bg-indigo-50 rounded-md ring-1 ring-inset ring-indigo-700/10">
       <span aria-hidden="true">&rarr;</span>
     </button>
+      @endif
   </div>
   <ul role="list"
     class="grid grid-cols-1 gap-x-8 gap-y-16 mx-auto mt-20 max-w-2xl sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
     @foreach ($this->animals as $animal)
-    <li wire:key="{{ md5($animal->name) }}">
-      <img class="mx-auto w-56 h-56 rounded-full" src="{{ $animal->pic2 }}" alt="">
-      <h3 class="mt-6 text-base font-semibold tracking-tight leading-7 text-gray-900">{{$animal->name}}</h3>
-      <p
-      class="px-4 mx-auto text-sm leading-6 text-center text-gray-700">{{$animal->shortdescription}}</p>
+    <li wire:key="{{ md5($animal->id) }}">
+      <img class="mx-auto w-56 h-56 rounded-full" src="{{ $animal->pic2 }}" alt="{{ $animal->name }}">
+      <h3 class="mt-6 text-base font-semibold tracking-tight leading-7 text-gray-900">
+        {{$animal->name}}
+      </h3>
+      <h4 class="font-semibold tracking-tight text-sm leading-6 text-gray-900">
+        {{$animal->location->city . ' - ' . $animal->location->county}}
+      </h4>
+      <p class="px-4 mx-auto text-sm leading-6 line-clamp-2 text-justify text-gray-700">
+        {{$animal->short_description}}
+      </p>
       <p
       class="flex justify-between px-4 mx-auto text-sm leading-6 text-indigo-700 bg-indigo-50 rounded-md border ring-1 ring-inset ring-indigo-700/10">
       <span>
