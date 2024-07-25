@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @method static select()
@@ -71,7 +71,7 @@ class Animal extends Model
         'baby',
         'ex_breeding',
         'only_animal',
-        'not_mtar',
+        'from_outside',
         'age_no',
         'assessment_date',
         'vetter_note',
@@ -104,14 +104,6 @@ class Animal extends Model
         'dom_date',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'locked_time' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
-
     public function location(): BelongsTo
     {
         return $this->belongsTo(User::class, 'located_at');
@@ -120,5 +112,12 @@ class Animal extends Model
     public function applications(): HasMany
     {
         return $this->hasMany(Application::class, 'animal_id');
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'locked_time' => 'datetime',
+        ];
     }
 }

@@ -1,4 +1,4 @@
-<div class="isolate overflow-hidden relative py-24 bg-gray-900 sm:py-32">
+<div class="isolate overflow-hidden relative py-10 bg-gray-900 sm:py-20">
   <img src="https://images.unsplash.com/photo-1524488940798-207762929d66?q=80&w=2160&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply" alt="" class="object-cover object-right absolute inset-0 w-full h-full -z-10 md:object-center">
   <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">
     <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
@@ -17,7 +17,12 @@
         </svg>
         <div class="text-base leading-7">
           <h3 class="font-semibold text-white">Our Mission</h3>
-          <p class="mt-2 text-gray-300">Animal Shelter was set up as a Not For Profit Company. The objectives of this Association are: <br>to take in and re-home unwanted dogs;<br> to provide a special living environment;<br> to help them adapt and find permanent homes of their own.<br>&nbsp;</p>
+          <p class="mt-2 text-gray-300">Animal Shelter was set up as a Not For Profit Company. The objectives of this Association are:</p>
+          <ul class="list-disc list-inside text-gray-300 ml-4">
+            <li>to take in and re-home unwanted dogs;</li>
+            <li>to provide a special living environment;</li>
+            <li>to help them adapt and find permanent homes of their own.</li>
+          </ul>
         </div>
       </div>
       <div class="flex gap-x-4 p-6 rounded-xl ring-1 ring-inset bg-white/5 ring-white/10">
@@ -26,7 +31,7 @@
         </svg>
         <div class="text-base leading-7">
           <h3 class="font-semibold text-white">Our Promise</h3>
-          <p class="mt-2 text-gray-300">All our dogs are spayed/neutered, micro chipped, inoculated and wormed but in addition to this we get many dogs in need of specialist veterinary care. Some of the most frequent problems we encounter are dogs who arrive here with eye and heart problems, along with those with liver shunts and joint problems.</p>
+          <p class="mt-2 text-gray-300">All our dogs are spayed/neutered, micro chipped, inoculated and wormed but in addition to this we get many dogs in need of specialist veterinary care. Some of the most frequent problems we encounter are dogs who arrive here with eye and heart problems, along with those with liver shunts and joint problems.<br>&nbsp;</p>
         </div>
       </div>
       <div class="flex gap-x-4 p-6 rounded-xl ring-1 ring-inset bg-white/5 ring-white/10">
@@ -36,7 +41,7 @@
         </svg>
         <div class="text-base leading-7">
           <h3 class="font-semibold text-white">Our Vision</h3>
-          <p class="mt-2 text-gray-300">All potential adopters are interviewed and homes vetted and we do our utmost best to find the right home for each dog. The rescue has grown considerably since it first opened and now homes in excess of 3,000 dogs a year. We hope to keep exceeding this and grow year on year.<br>&nbsp;</p>
+          <p class="mt-2 text-gray-300">All potential adopters are interviewed and homes vetted and we do our utmost best to find the right home for each dog. The rescue has grown considerably since it first opened and now homes in excess of 3,000 dogs a year. We hope to keep exceeding this and grow year on year.<br>&nbsp;<br>&nbsp;</p>
         </div>
       </div>
     </div>

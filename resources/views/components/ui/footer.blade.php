@@ -2,7 +2,9 @@
   <h2 id="footer-heading" class="sr-only">Footer</h2>
   <div class="px-6 pt-16 pb-8 mx-auto max-w-7xl sm:pt-24 lg:px-8 lg:pt-32">
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-      <img class="h-24" src="https://animal_shelter.test/build/assets/panda.gif" alt="Company name">
+      <a href="{{ route('home') }}">
+        <img class="h-24" src="https://animal_shelter.test/build/assets/panda.gif" alt="Company name">
+      </a>
       <div class="grid grid-cols-2 gap-8 mt-16 xl:col-span-2 xl:mt-0">
         <div class="md:grid md:grid-cols-2 md:gap-8">
           <div>

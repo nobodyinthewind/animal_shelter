@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -20,16 +21,17 @@ class User extends Authenticatable
 
     protected $hidden = ['password', 'remember_token'];
 
+    public function animals(): HasMany
+    {
+        return $this->hasMany(Animal::class);
+    }
+
     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'role' => UserRole::class,
         ];
-    }
-
-    public function animals(): HasMany
-    {
-        return $this->hasMany(Animal::class);
     }
 }

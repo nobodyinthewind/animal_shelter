@@ -14,9 +14,9 @@ return new class() extends Migration
     public function up(): void
     {
         Schema::create('applications', static function (Blueprint $table): void {
-            $table->ulid("id");
-            $table->integer("user_id");
-            $table->integer("animal_id");
+            $table->ulid('id');
+            $table->integer('user_id');
+            $table->integer('animal_id');
             $table->timestamps();
         });
     }

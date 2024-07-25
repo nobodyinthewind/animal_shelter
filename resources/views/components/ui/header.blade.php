@@ -143,7 +143,7 @@
                 perspectives from our team</p>
             </div>
             <div class="grid grid-cols-2 bg-gray-50 divide-x divide-gray-900/5">
-              <a href="#"
+              <a href="https://www.youtube.com/@ManyTearsRescueBTS" target="_blank"
                  class="flex gap-x-2.5 justify-center items-center p-3 text-sm font-semibold leading-6 text-gray-900 normal-case hover:bg-gray-100">
                 <svg class="flex-none w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
                      aria-hidden="true">
@@ -168,7 +168,7 @@
         </div>
       </div>
     </div>
-    <a href="#" class="p-1.5 -m-1.5">
+    <a href="{{ route('home') }}" class="p-1.5 -m-1.5">
       <span class="sr-only">Animal Shelter</span>
       <img class="w-12 h-12" src="{{ asset('build/assets/panda.gif')}}" alt="Animal Shelter Logo">
     </a>
@@ -296,7 +296,7 @@
         </div>
       </div>
       <div class="grid sticky bottom-0 grid-cols-2 text-center bg-gray-50 divide-x divide-gray-900/5">
-        <a href="#" class="p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100">Youtube channel</a>
+        <a href="https://www.youtube.com/@ManyTearsRescueBTS" target="_blank" class="p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100">Youtube channel</a>
         <a href="#" class="p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100">Contact
           us</a>
 
